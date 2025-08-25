@@ -64,6 +64,10 @@ def predict():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+      
+@app.route('/', methods=['GET'])
+def home():
+    return "PCOS Prediction API is running. Use /predict endpoint."
 
 if __name__ == '__main__':
     app.run(debug=False)
