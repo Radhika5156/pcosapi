@@ -2,23 +2,23 @@ import pickle
 import numpy as np
 from flask import Flask, request, jsonify
 
-# Load the trained models and scaler
+# Load models
 rf_model = pickle.load(open("pcos_rf_model.pkl", "rb"))
 svm_model = pickle.load(open("pcos_svm_model.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
-# List of feature names (must match the training data)
-feature_names = ['Age (yrs)', 'Weight (Kg)', 'Height(Cm)', 'BMI', 'Blood Group', 'Pulse rate(bpm)', 
-                 'RR (breaths/min)', 'Hb(g/dl)', 'Cycle(R/I)', 'Cycle length(days)', 'Marraige Status (Yrs)', 
-                 'Pregnant(Y/N)', 'No. of abortions', 'I beta-HCG(mIU/mL)', 'II beta-HCG(mIU/mL)', 
-                 'FSH(mIU/mL)', 'LH(mIU/mL)', 'FSH/LH', 'Hip(inch)', 'Waist(inch)', 'Waist:Hip Ratio', 
-                 'TSH (mIU/L)', 'AMH(ng/mL)', 'PRL(ng/mL)', 'Vit D3 (ng/mL)', 'PRG(ng/mL)', 'RBS(mg/dl)', 
-                 'Weight gain(Y/N)', 'hair growth(Y/N)', 'Skin darkening (Y/N)', 'Hair loss(Y/N)', 
-                 'Pimples(Y/N)', 'Fast food (Y/N)', 'Reg.Exercise(Y/N)', 'BP _Systolic (mmHg)', 
-                 'BP _Diastolic (mmHg)', 'Follicle No. (L)', 'Follicle No. (R)', 
+# Feature names (same as training)
+feature_names = ['Age (yrs)', 'Weight (Kg)', 'Height(Cm)', 'BMI', 'Blood Group', 'Pulse rate(bpm)',
+                 'RR (breaths/min)', 'Hb(g/dl)', 'Cycle(R/I)', 'Cycle length(days)', 'Marraige Status (Yrs)',
+                 'Pregnant(Y/N)', 'No. of abortions', 'I beta-HCG(mIU/mL)', 'II beta-HCG(mIU/mL)',
+                 'FSH(mIU/mL)', 'LH(mIU/mL)', 'FSH/LH', 'Hip(inch)', 'Waist(inch)', 'Waist:Hip Ratio',
+                 'TSH (mIU/L)', 'AMH(ng/mL)', 'PRL(ng/mL)', 'Vit D3 (ng/mL)', 'PRG(ng/mL)', 'RBS(mg/dl)',
+                 'Weight gain(Y/N)', 'hair growth(Y/N)', 'Skin darkening (Y/N)', 'Hair loss(Y/N)',
+                 'Pimples(Y/N)', 'Fast food (Y/N)', 'Reg.Exercise(Y/N)', 'BP _Systolic (mmHg)',
+                 'BP _Diastolic (mmHg)', 'Follicle No. (L)', 'Follicle No. (R)',
                  'Avg. F size (L) (mm)', 'Avg. F size (R) (mm)', 'Endometrium (mm)']
 
-# Initialize Flask app
+# Initialize Flask
 app = Flask(__name__)
 
 @app.route('/predict', methods=['POST'])
@@ -26,31 +26,33 @@ def predict():
     try:
         data = request.json
         features = data.get('features')
-        model_choice = data.get('model', 'rf')  # default = Random Forest
+        model_choice = data.get('model', 'rf')  # default: Random Forest
 
-        # Validate input
+        # Input validation
         if not isinstance(features, list) or len(features) != len(feature_names):
             return jsonify({'error': f'Expected {len(feature_names)} features'}), 400
+
         if not all(isinstance(x, (int, float)) for x in features):
             return jsonify({'error': 'All features must be numbers'}), 400
 
-        # Preprocess
+        # Transform input
         features_array = np.array(features).reshape(1, -1)
         features_scaled = scaler.transform(features_array)
 
-        # Choose model
-        if model_choice == "svm":
-            prediction = int(svm_model.predict(features_scaled)[0])
-            try:
-                prob = svm_model.predict_proba(features_scaled)[0][1]
-            except:
-                prob = None
-        else:  # default Random Forest
-            prediction = int(rf_model.predict(features_scaled)[0])
-            try:
-                prob = rf_model.predict_proba(features_scaled)[0][1]
-            except:
-                prob = None
+        # Select model
+        if model_choice == 'rf':
+            model = rf_model
+        elif model_choice == 'svm':
+            model = svm_model
+        else:
+            return jsonify({'error': 'Invalid model. Use "rf" or "svm".'}), 400
+
+        # Predict
+        prediction = int(model.predict(features_scaled)[0])
+        try:
+            prob = model.predict_proba(features_scaled)[0][1]
+        except:
+            prob = None
 
         return jsonify({
             'model_used': model_choice,
@@ -63,6 +65,5 @@ def predict():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Entry point (optional, not used in Render)
 if __name__ == '__main__':
     app.run(debug=False)
