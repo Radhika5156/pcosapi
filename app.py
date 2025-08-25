@@ -1,13 +1,15 @@
 import pickle
 import numpy as np
+import pandas as pd
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
-# Load models
+# Load models and scaler
 rf_model = pickle.load(open("pcos_rf_model.pkl", "rb"))
 svm_model = pickle.load(open("pcos_svm_model.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
-# Feature names (same as training)
+# Feature names (same as training dataset)
 feature_names = [
     'Age (yrs)', 'Weight (Kg)', 'Height(Cm)', 'BMI', 'Blood Group', 'Pulse rate(bpm)',
     'RR (breaths/min)', 'Hb(g/dl)', 'Cycle(R/I)', 'Cycle length(days)', 'Marraige Status (Yrs)',
@@ -20,13 +22,14 @@ feature_names = [
     'Avg. F size (L) (mm)', 'Avg. F size (R) (mm)', 'Endometrium (mm)'
 ]
 
-# Initialize Flask
+# Initialize Flask app
 app = Flask(__name__)
+CORS(app)  # Enable CORS for mobile app access
 
 # Home route
 @app.route('/', methods=['GET'])
 def home():
-    return "PCOS Prediction API is running. Use /predict endpoint with POST request."
+    return " PCOS Prediction API is running. Use POST /predict with JSON input."
 
 # Prediction route
 @app.route('/predict', methods=['POST'])
@@ -43,33 +46,40 @@ def predict():
         if not all(isinstance(x, (int, float)) for x in features):
             return jsonify({'error': 'All features must be numbers'}), 400
 
-        # Transform input
-        features_array = np.array(features).reshape(1, -1)
-        features_scaled = scaler.transform(features_array)
+        # Use DataFrame to preserve feature names (fixes sklearn warning)
+        df = pd.DataFrame([features], columns=feature_names)
+        df_scaled = scaler.transform(df)
 
         # Select model
-        model = rf_model if model_choice == 'rf' else svm_model if model_choice == 'svm' else None
-        if model is None:
+        if model_choice == 'rf':
+            model = rf_model
+        elif model_choice == 'svm':
+            model = svm_model
+        else:
             return jsonify({'error': 'Invalid model. Use "rf" or "svm".'}), 400
 
         # Predict
-        prediction = int(model.predict(features_scaled)[0])
-        try:
-            prob = model.predict_proba(features_scaled)[0][1]
-        except:
-            prob = None
+        prediction = int(model.predict(df_scaled)[0])
 
+        # Try probability
+        try:
+            prob = model.predict_proba(df_scaled)[0][1]
+            prob_text = f"{round(prob * 100, 2)}%"
+        except:
+            prob_text = "Not Available"
+
+        # Return clean JSON
         return jsonify({
-            'model_used': model_choice,
-            'prediction': prediction,
-            'message': 'PCOS Detected' if prediction == 1 else 'No PCOS Detected',
-            'probability': f"{round(prob * 100, 2)}%" if prob is not None else 'Not Available',
-            'features': {feature_names[i]: features[i] for i in range(len(features))}
+            "prediction": prediction,
+            "message": "PCOS Detected" if prediction == 1 else "No PCOS Detected",
+            "model_used": model_choice,
+            "probability": prob_text
         })
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
 
+# Run the app
 if __name__ == '__main__':
     app.run(debug=False)
