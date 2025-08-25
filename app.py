@@ -29,7 +29,7 @@ CORS(app)  # Enable CORS for mobile app access
 # Home route
 @app.route('/', methods=['GET'])
 def home():
-    return " PCOS Prediction API is running. Use POST /predict with JSON input."
+    return "✅ PCOS Prediction API is running. Use POST /predict with JSON input."
 
 # Prediction route
 @app.route('/predict', methods=['POST'])
@@ -46,7 +46,7 @@ def predict():
         if not all(isinstance(x, (int, float)) for x in features):
             return jsonify({'error': 'All features must be numbers'}), 400
 
-        # Use DataFrame to preserve feature names (fixes sklearn warning)
+        # ✅ Use DataFrame to preserve feature names (fixes sklearn warning)
         df = pd.DataFrame([features], columns=feature_names)
         df_scaled = scaler.transform(df)
 
@@ -68,7 +68,7 @@ def predict():
         except:
             prob_text = "Not Available"
 
-        # Return clean JSON
+        # ✅ Return clean JSON
         return jsonify({
             "prediction": prediction,
             "message": "PCOS Detected" if prediction == 1 else "No PCOS Detected",
