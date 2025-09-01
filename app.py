@@ -7,7 +7,7 @@ rf_model = pickle.load(open("pcos_rf_model.pkl", "rb"))
 svm_model = pickle.load(open("pcos_svm_model.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
-# Feature names (same as training)
+# Feature names (full list used in training)
 feature_names = [
     'Age (yrs)', 'Weight (Kg)', 'Height(Cm)', 'BMI', 'Blood Group', 'Pulse rate(bpm)',
     'RR (breaths/min)', 'Hb(g/dl)', 'Cycle(R/I)', 'Cycle length(days)', 'Marraige Status (Yrs)',
@@ -33,14 +33,20 @@ def home():
 def predict():
     try:
         data = request.json
-        features = data.get('features')
         model_choice = data.get('model', 'rf')  # default: Random Forest
 
-        # Input validation
-        if not isinstance(features, list) or len(features) != len(feature_names):
-            return jsonify({'error': f'Expected {len(feature_names)} features'}), 400
-        if not all(isinstance(x, (int, float)) for x in features):
-            return jsonify({'error': 'All features must be numbers'}), 400
+        # ✅ Extract only 5 inputs from Android app
+        age = float(data.get("age", 0))
+        bmi = float(data.get("bmi", 0))
+        cycle_len = float(data.get("cycle_length", 0))
+        bp = float(data.get("bp", 0))
+        gender = 1 if data.get("gender", "F") == "F" else 0
+
+        # ✅ Fill missing 37 features with zeros
+        features = [age, 0, 0, bmi, gender, 0, 0, 0, 0, cycle_len,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, bp, 0, 0, 0, 0, 0, 0, 0]
 
         # Transform input
         features_array = np.array(features).reshape(1, -1)
@@ -66,7 +72,13 @@ def predict():
             'prediction': prediction,
             'message': 'PCOS Detected' if prediction == 1 else 'No PCOS Detected',
             'probability': f"{round(prob * 100, 2)}%" if prob is not None else 'Not Available',
-            'features': {feature_names[i]: features[i] for i in range(len(features))}
+            'features_used': {
+                "age": age,
+                "bmi": bmi,
+                "cycle_length": cycle_len,
+                "bp": bp,
+                "gender": gender
+            }
         })
 
     except Exception as e:
