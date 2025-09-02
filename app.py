@@ -38,9 +38,9 @@ def predict():
 
         # ✅ Fill missing 37 features with zeros
         features = [age, 0, 0, bmi, gender, 0, 0, 0, 0, cycle_len,
-                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                    0, 0, 0, 0, bp, 0, 0, 0, 0, 0, 0, 0]
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, bp, 0, 0, 0, 0, 0, 0]
 
         # Transform input
         features_array = np.array(features).reshape(1, -1)
