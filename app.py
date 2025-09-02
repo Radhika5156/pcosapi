@@ -7,19 +7,6 @@ rf_model = pickle.load(open("pcos_rf_model.pkl", "rb"))
 svm_model = pickle.load(open("pcos_svm_model.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
-# Feature names (full list used in training)
-feature_names = [
-    'Age (yrs)', 'Weight (Kg)', 'Height(Cm)', 'BMI', 'Blood Group', 'Pulse rate(bpm)',
-    'RR (breaths/min)', 'Hb(g/dl)', 'Cycle(R/I)', 'Cycle length(days)', 'Marraige Status (Yrs)',
-    'Pregnant(Y/N)', 'No. of abortions', 'I beta-HCG(mIU/mL)', 'II beta-HCG(mIU/mL)',
-    'FSH(mIU/mL)', 'LH(mIU/mL)', 'FSH/LH', 'Hip(inch)', 'Waist(inch)', 'Waist:Hip Ratio',
-    'TSH (mIU/L)', 'AMH(ng/mL)', 'PRL(ng/mL)', 'Vit D3 (ng/mL)', 'PRG(ng/mL)', 'RBS(mg/dl)',
-    'Weight gain(Y/N)', 'hair growth(Y/N)', 'Skin darkening (Y/N)', 'Hair loss(Y/N)', 'Pimples(Y/N)',
-    'Fast food (Y/N)', 'Reg.Exercise(Y/N)', 'BP _Systolic (mmHg)', 'BP _Diastolic (mmHg)',
-    'Follicle No. (L)', 'Follicle No. (R)', 'Avg. F size (L) (mm)', 'Avg. F size (R) (mm)',
-    'Endometrium (mm)'
-]
-
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -35,12 +22,19 @@ def predict():
         data = request.json
         model_choice = data.get('model', 'rf')  # default: Random Forest
 
-        # ✅ Extract only 5 inputs from Android app
-        age = float(data.get("age", 0))
-        bmi = float(data.get("bmi", 0))
-        cycle_len = float(data.get("cycle_length", 0))
-        bp = float(data.get("bp", 0))
-        gender = 1 if data.get("gender", "F") == "F" else 0
+        # ✅ Accept both formats: features[] OR separate keys
+        if "features" in data:
+            features_input = data["features"]
+            if len(features_input) != 5:
+                return jsonify({"error": "features must have 5 values: [age, bmi, cycle_length, bp, gender]"}), 400
+            age, bmi, cycle_len, bp, gender = features_input
+            gender = 1 if str(gender).upper() == "F" else 0
+        else:
+            age = float(data.get("age", 0))
+            bmi = float(data.get("bmi", 0))
+            cycle_len = float(data.get("cycle_length", 0))
+            bp = float(data.get("bp", 0))
+            gender = 1 if data.get("gender", "F").upper() == "F" else 0
 
         # ✅ Fill missing 37 features with zeros
         features = [age, 0, 0, bmi, gender, 0, 0, 0, 0, cycle_len,
