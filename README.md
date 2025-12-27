@@ -7,23 +7,45 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 ---
 
-##  Application Screenshots
-
-Below are the screenshots of the **AI-PCOS Android Application**, as presented in the project PPT.
+### 🟢 App Interface Screens
 
 | Home Screen | User Input Screen |
 |------------|------------------|
-| ![](./images/screen1_home.png) | ![](./images/screen2_input.png) |
+| ![](./app_screens/app1.png) | ![](./app_screens/app5.png) |
 
 | Prediction Result | Lifestyle Recommendation |
 |------------------|--------------------------|
-| ![](./images/screen3_result.png) | ![](./images/screen4_lifestyle.png) |
+| ![](./app_screens/app6.png) | ![](./app_screens/app7.png) |
 
 | API Connectivity | System Output |
 |------------------|--------------|
-| ![](./images/screen5_api.png) | ![](./images/screen6_output.png) |
+| ![](./app_screens/app8.png) | ![](./app_screens/app9.png) |
 
+---
 
+### 🟢 Additional Application Screens
+
+| Screen 10 | Screen 11 |
+|----------|-----------|
+| ![](./app_screens/app10.png) | ![](./app_screens/app11.png) |
+
+| Screen 12 | Screen 13 |
+|----------|-----------|
+| ![](./app_screens/app12.png) | ![](./app_screens/app13.png) |
+
+| Screen 14 | Screen 15 |
+|----------|-----------|
+| ![](./app_screens/app14.png) | ![](./app_screens/app15.png) |
+
+| Screen 16 | Screen 17 |
+|----------|-----------|
+| ![](./app_screens/app16.png) | ![](./app_screens/app17.png) |
+
+| Screen 18 | Screen 19 |
+|----------|-----------|
+| ![](./app_screens/app18.png) | ![](./app_screens/app19.png) |
+
+---
 
 ##  Project Objectives
 
@@ -113,33 +135,32 @@ JSON-based request and response
 
 API tested using Postman
 
-**### Technology Stack**
+---
 
-Programming Language: Python
+## Technology Stack
 
-Backend Framework: Flask
+- **Programming Language:** Python  
+- **Backend Framework:** Flask  
+- **Machine Learning:** Scikit-Learn  
+- **API Testing:** Postman  
+- **Mobile Platform:** Android  
+- **Deployment:** Render Cloud  
 
-Machine Learning: Scikit-Learn
+---
 
-API Testing: Postman
+##  Installation & Execution
 
-Mobile Platform: Android
-
-Deployment: Render Cloud
-
-**### Installation & Execution**
-
+```bash
 git clone https://github.com/Radhika5156/pcosapi.git
 cd pcosapi
 python -m venv venv
 pip install -r requirements.txt
 python app.py
 
-**## Result Analysis & Implementation**
-
+## Result Analysis & Implementation
 Machine learning models evaluated on processed datasets
 
-Best-performing model deployed as REST API
+Best-performing model deployed as a REST API
 
 API validated using Postman
 
@@ -147,8 +168,7 @@ End-to-end integration tested with Android application
 
 System provides reliable and real-time prediction results
 
-**## Project Development Timeline
-**
+## Project Development Timeline
 Literature review and problem identification
 
 Data preprocessing and feature analysis
@@ -161,8 +181,7 @@ Android app integration
 
 Testing and documentation
 
-**### Research Publication**
-
+### Research Publication
 Title: A Comprehensive Review of AI-Based Approaches for PCOS Diagnosis
 Journal: Degres Journal (UGC Care Group-II)
 ISSN: 0376-8163
@@ -174,9 +193,7 @@ Radhika Vyas, Apeksha Patil, Rushikesh Patil, Mayank Sohani
 
 🔗 https://degres.eu/volume-10-issue-10-2025/
 
-
-**### Project Team**
-
+# Project Team
 Radhika Vyas
 
 Apeksha Patil
@@ -190,8 +207,7 @@ Department of Computer Science
 SVKM’s NMIMS MPSTME, Shirpur Campus
 Academic Year: 2025–26
 
-**### Future Enhancements**
-
+## Future Enhancements
 CNN-based ultrasound image diagnosis
 
 Explainable AI (SHAP / LIME)
