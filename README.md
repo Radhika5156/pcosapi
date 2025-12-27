@@ -11,15 +11,15 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Home Screen | User Input Screen |
 |------------|------------------|
-| ![](./app screens/app1.png) | ![](./app screens/app5.png) |
+| ![Home Screen](app_screens/app1.png.png) | ![User Input](app_screens/app5.png.png) |
 
 | Prediction Result | Lifestyle Recommendation |
 |------------------|--------------------------|
-| ![](./app screens/app6.png) | ![](./app screens/app7.png) |
+| ![Prediction Result](app_screens/app6.png.png) | ![Lifestyle](app_screens/app7.png.png) |
 
 | API Connectivity | System Output |
 |------------------|--------------|
-| ![](./app screens/app8.png) | ![](./app screens/app9.png) |
+| ![API Connectivity](app_screens/app8.png.png) | ![System Output](app_screens/app9.png.png) |
 
 ---
 
@@ -27,23 +27,23 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Screen 10 | Screen 11 |
 |----------|-----------|
-| ![](./app screens/app10.png) | ![](./app screens/app11.png) |
+| ![](app_screens/app10.png.png) | ![](app_screens/app11.png.png) |
 
 | Screen 12 | Screen 13 |
 |----------|-----------|
-| ![](./app screens/app12.png) | ![](./app screens/app13.png) |
+| ![](app_screens/app12.png.png) | ![](app_screens/app13.png.png) |
 
 | Screen 14 | Screen 15 |
 |----------|-----------|
-| ![](./app screens/app14.png) | ![](./app screens/app15.png) |
+| ![](app_screens/app14.png.png) | ![](app_screens/app15.png.png) |
 
 | Screen 16 | Screen 17 |
 |----------|-----------|
-| ![](./app_screens/app16.png) | ![](./app_screens/app17.png) |
+| ![](app_screens/app16.png.png) | ![](app_screens/app17.png.png) |
 
 | Screen 18 | Screen 19 |
 |----------|-----------|
-| ![](./app screens/app18.png) | ![](./app screens/app19.png) |
+| ![](app_screens/app18.png.png) | ![](app_screens/app19.png.png) |
 
 ---
 
