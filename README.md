@@ -7,7 +7,7 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 ---
 
-### 🟢 App Interface Screens
+###  App Interface Screens
 
 | Home Screen | User Input Screen |
 |------------|------------------|
@@ -23,7 +23,7 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 ---
 
-### 🟢 Additional Application Screens
+###  Additional Application Screens
 
 | Screen 10 | Screen 11 |
 |----------|-----------|
@@ -158,6 +158,7 @@ pip install -r requirements.txt
 python app.py
 
 ## Result Analysis & Implementation
+
 Machine learning models evaluated on processed datasets
 
 Best-performing model deployed as a REST API
@@ -169,6 +170,7 @@ End-to-end integration tested with Android application
 System provides reliable and real-time prediction results
 
 ## Project Development Timeline
+
 Literature review and problem identification
 
 Data preprocessing and feature analysis
@@ -182,6 +184,7 @@ Android app integration
 Testing and documentation
 
 ### Research Publication
+
 Title: A Comprehensive Review of AI-Based Approaches for PCOS Diagnosis
 Journal: Degres Journal (UGC Care Group-II)
 ISSN: 0376-8163
@@ -194,6 +197,7 @@ Radhika Vyas, Apeksha Patil, Rushikesh Patil, Mayank Sohani
 🔗 https://degres.eu/volume-10-issue-10-2025/
 
 # Project Team
+
 Radhika Vyas
 
 Apeksha Patil
@@ -208,6 +212,7 @@ SVKM’s NMIMS MPSTME, Shirpur Campus
 Academic Year: 2025–26
 
 ## Future Enhancements
+
 CNN-based ultrasound image diagnosis
 
 Explainable AI (SHAP / LIME)
