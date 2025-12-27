@@ -11,15 +11,15 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Home Screen | User Input Screen |
 |------------|------------------|
-| ![](./app_screens/app1.png) | ![](./app_screens/app5.png) |
+| ![](./app screens/app1.png) | ![](./app screens/app5.png) |
 
 | Prediction Result | Lifestyle Recommendation |
 |------------------|--------------------------|
-| ![](./app_screens/app6.png) | ![](./app_screens/app7.png) |
+| ![](./app screens/app6.png) | ![](./app screens/app7.png) |
 
 | API Connectivity | System Output |
 |------------------|--------------|
-| ![](./app_screens/app8.png) | ![](./app_screens/app9.png) |
+| ![](./app screens/app8.png) | ![](./app screens/app9.png) |
 
 ---
 
@@ -27,15 +27,15 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Screen 10 | Screen 11 |
 |----------|-----------|
-| ![](./app_screens/app10.png) | ![](./app_screens/app11.png) |
+| ![](./app screens/app10.png) | ![](./app screens/app11.png) |
 
 | Screen 12 | Screen 13 |
 |----------|-----------|
-| ![](./app_screens/app12.png) | ![](./app_screens/app13.png) |
+| ![](./app screens/app12.png) | ![](./app screens/app13.png) |
 
 | Screen 14 | Screen 15 |
 |----------|-----------|
-| ![](./app_screens/app14.png) | ![](./app_screens/app15.png) |
+| ![](./app screens/app14.png) | ![](./app screens/app15.png) |
 
 | Screen 16 | Screen 17 |
 |----------|-----------|
@@ -43,7 +43,7 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Screen 18 | Screen 19 |
 |----------|-----------|
-| ![](./app_screens/app18.png) | ![](./app_screens/app19.png) |
+| ![](./app screens/app18.png) | ![](./app screens/app19.png) |
 
 ---
 
