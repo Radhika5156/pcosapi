@@ -35,15 +35,15 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Screen 14 | Screen 15 |
 |----------|-----------|
-| ![](app_screens/app14.png.png)
+| ![](app_screens/app14.png.png) | ![](app_screens/app16.png.png) |
 
 | Screen 16 | Screen 17 |
 |----------|-----------|
-| ![](app_screens/app16.png.png) | ![](app_screens/app17.png.png) |
+| ![](app_screens/app16.png.png) | ![](app_screens/app18.png.png) |
 
 | Screen 18 | Screen 19 |
 |----------|-----------|
-| ![](app_screens/app18.png.png) | ![](app_screens/app19.png.png) |
+|![](app_screens/app19.png.png) |
 
 ---
 
