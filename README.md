@@ -15,7 +15,7 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Prediction Result | Lifestyle Recommendation |
 |------------------|--------------------------|
-| ![Prediction Result](app_screens/app6.png.png) | ![Lifestyle](app_screens/app7.png.png) |
+| ![Prediction Result](app_screens/app6.png.png) | ![Lifestyle](app_screens/app_7.png.png) |
 
 | API Connectivity | System Output |
 |------------------|--------------|
