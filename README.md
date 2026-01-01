@@ -35,7 +35,7 @@ The work is supported by an extensive literature survey and a **peer-reviewed pu
 
 | Screen 14 | Screen 15 |
 |----------|-----------|
-| ![](app_screens/app14.png.png) | ![](app_screens/app15.png.png) |
+| ![](app_screens/app14.png.png)
 
 | Screen 16 | Screen 17 |
 |----------|-----------|
