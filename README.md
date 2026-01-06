@@ -8,11 +8,11 @@
 An **AI-driven system for early detection and holistic management of Polycystic Ovary Syndrome (PCOS)**.
 The project integrates **machine learning-based prediction**, a **cloud-deployed REST API**, and an **Android mobile application** to deliver real-time diagnosis support and personalized lifestyle recommendations.
 
-📄 Supported by an extensive literature survey and a **peer-reviewed publication in a UGC Care Group-II journal**.
+ Supported by an extensive literature survey and a **peer-reviewed publication in a UGC Care Group-II journal**.
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
 * ML-based PCOS prediction using clinical and lifestyle parameters
 * Cloud-hosted REST API for real-time inference
@@ -22,7 +22,7 @@ The project integrates **machine learning-based prediction**, a **cloud-deployed
 
 ---
 
-## 📱 Application Screenshots
+##  Application Screenshots
 
 ### Main Screens
 
@@ -62,7 +62,7 @@ The project integrates **machine learning-based prediction**, a **cloud-deployed
 
 ---
 
-## 🎯 Project Objectives
+##  Project Objectives
 
 * Collect and preprocess PCOS-related clinical data
 * Identify key features influencing PCOS diagnosis
@@ -73,7 +73,7 @@ The project integrates **machine learning-based prediction**, a **cloud-deployed
 
 ---
 
-## 📚 Literature Survey Summary
+##  Literature Survey Summary
 
 * Reviewed **30+ AI-based research papers** on PCOS
 * Algorithms studied:
@@ -97,7 +97,7 @@ The project integrates **machine learning-based prediction**, a **cloud-deployed
 
 ---
 
-## 🧠 Proposed System
+##  Proposed System
 
 1. User enters health parameters in the Android app
 2. Data is sent to a cloud-hosted Flask API
@@ -107,7 +107,7 @@ The project integrates **machine learning-based prediction**, a **cloud-deployed
 
 ---
 
-## 🌐 Live Prediction API
+##  Live Prediction API
 
 **Endpoint:**
 
@@ -127,7 +127,7 @@ URL url = new URL("https://pcosapi-eq6x.onrender.com/predict");
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 * **Programming Language:** Python
 * **Machine Learning:** Scikit-Learn
@@ -138,7 +138,7 @@ URL url = new URL("https://pcosapi-eq6x.onrender.com/predict");
 
 ---
 
-## ⚙️ Installation & Execution
+##  Installation & Execution
 
 ```bash
 git clone https://github.com/Radhika5156/pcosapi.git
@@ -150,7 +150,7 @@ python app.py
 
 ---
 
-## 📊 Results
+##  Results
 
 * Multiple ML models trained and evaluated
 * Best-performing model deployed as REST API
@@ -159,7 +159,7 @@ python app.py
 
 ---
 
-## 📅 Project Development Timeline
+##  Project Development Timeline
 
 * Literature review and problem identification
 * Data preprocessing and feature engineering
@@ -170,7 +170,7 @@ python app.py
 
 ---
 
-## 📄 Research Publication
+##  Research Publication
 
 **Title:** A Comprehensive Review of AI-Based Approaches for PCOS Diagnosis
 **Journal:** Degres Journal (UGC Care Group-II)
@@ -193,7 +193,7 @@ Academic Year: 2025–26
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 * CNN-based ultrasound image diagnosis
 * Explainable AI (SHAP / LIME)
