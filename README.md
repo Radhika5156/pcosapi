@@ -200,3 +200,11 @@ Academic Year: 2025–26
 * Wearable device integration
 * Secure data storage and privacy mechanisms
 * Doctor and community support modules
+
+
+---
+##  Download Android Application
+You can download and install the Android APK from the link below:
+
+🔗 [Download APK](https://github.com/YOUR-REPO-LINK/app-debug.apk)
+
