@@ -204,7 +204,11 @@ Academic Year: 2025–26
 
 ---
 ##  Download Android Application
+
 You can download and install the Android APK from the link below:
 
-🔗 [Download APK](https://github.com/YOUR-REPO-LINK/app-debug.apk)
+ [Download APK](https://github.com/Radhika5156/pcosapi/raw/main/app-debug-androidTest.apk)
+
+
+
 
